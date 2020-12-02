@@ -300,6 +300,7 @@ class WebsocketProvider extends observable_js.Observable {
     }
     clearInterval(this._checkInterval);
     this.disconnect();
+    awarenessProtocol.removeAwarenessStates(this.awareness, [this.doc.clientID], 'destroy');
     this.awareness.off('update', this._awarenessUpdateHandler);
     this.doc.off('update', this._updateHandler);
     super.destroy();
